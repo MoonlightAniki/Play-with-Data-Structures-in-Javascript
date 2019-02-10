@@ -1,6 +1,7 @@
 const ArrayStack = require('./ArrayStack');
 const ArrayQueue = require('./ArrayQueue');
 const LoopQueue = require('./LoopQueue');
+const LinkedListQueue = require('../04-Linked-List/LinkedListQueue');
 
 const INT_MAX = Math.pow(2, 32) - 1;
 
@@ -37,3 +38,5 @@ const time2 = testQueue(new LoopQueue(), opCount);
 console.log(`LoopQueue, time: ${time2} s.`);
 const time3 = testArray(opCount);
 console.log(`Array, time: ${time3} s.`);
+const time4 = testQueue(new LinkedListQueue(), opCount);
+console.log(`LinkedListQueue, time: ${time4} s.`);
