@@ -54,6 +54,14 @@ class Array {
     return this.data[index];
   };
 
+  getFirst() {
+    return this.get(0);
+  }
+
+  getLast() {
+    return this.get(this.size - 1);
+  }
+
   // 更新索引index处元素的值
   set(index, e) {
     if (index < 0 || index >= this.size) {
