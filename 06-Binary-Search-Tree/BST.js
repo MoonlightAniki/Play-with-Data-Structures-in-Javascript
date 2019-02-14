@@ -119,7 +119,7 @@ class BST {
     const stack = [];
     stack.push(this.root);
     while (stack.length) {
-      let top = stack.pop();
+      const top = stack.pop();
       console.log(top.e);
       if (top.right) stack.push(top.right);
       if (top.left) stack.push(top.left);
@@ -132,14 +132,16 @@ class BST {
       return;
     }
     const stack = [];
-    if (this.root.right) stack.push(this.root.right);
-    stack.push(new Node(this.root.e));
-    if (this.root.left) stack.push(this.root.left);
+    stack.push(this.root);
     while (stack.length) {
-      let top = stack.pop();
-      if (top.right) stack.push(top.right);
-      console.log(top.e);
-      if (top.left) stack.push(top.left);
+      const top = stack.pop();
+      if (!top.left && !top.right) {
+        console.log(top.e);
+      } else {
+        if (top.right) {}stack.push(top.right);
+        stack.push(new Node(top.e));
+        if (top.left) stack.push(top.left);
+      }
     }
   }
 
@@ -149,9 +151,7 @@ class BST {
       return;
     }
     const stack = [];
-    stack.push(new Node(this.root.e));
-    if (this.root.right) stack.push(this.root.right);
-    if (this.root.left) stack.push(this.root.left);
+    stack.push(this.root);
     while (stack.length) {
       let top = stack.pop();
       if (!top.left && !top.right) {
