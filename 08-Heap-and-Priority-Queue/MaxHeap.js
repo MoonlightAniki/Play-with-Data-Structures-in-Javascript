@@ -1,6 +1,11 @@
 class MaxHeap {
-  constructor() {
+  constructor(arr = []) {
     this.data = [];
+    arr.forEach(e => this.data.push(e));
+    // Heapify: 从最后一个非叶子节点向前开始对每一个节点进行shiftDown操作
+    for (let i = this.__parent(this.data.length - 1); i >= 0; --i) {
+      this.__shiftDown(i);
+    }
   }
 
   getSize() {
@@ -26,9 +31,17 @@ class MaxHeap {
   extractMax() {
     const max = this.findMax();
     this.__swap(this.data, 0, this.data.length - 1);
-    this.data.length = this.data.length - 1;
+    this.data.length--;
     this.__shiftDown(0);
     return max;
+  }
+
+  // 取出堆顶的最大元素，并且替换成元素e
+  replace(e) {
+    const ret = this.findMax();
+    this.data[0] = e;
+    this.__shiftDown(0);
+    return ret;
   }
 
   __shiftUp(k) {
@@ -44,7 +57,7 @@ class MaxHeap {
       if (j + 1 < this.data.length && this.data[j + 1] > this.data[j]) {// 存在右孩子并且右孩子大于左孩子
         ++j;
       }
-      if (this.data >= this.data[j]) {
+      if (this.data[k] >= this.data[j]) {
         break;
       }
       this.__swap(this.data, k, j);
@@ -74,3 +87,5 @@ class MaxHeap {
     [arr[x], arr[y]] = [arr[y], arr[x]];
   }
 }
+
+module.exports = MaxHeap;
