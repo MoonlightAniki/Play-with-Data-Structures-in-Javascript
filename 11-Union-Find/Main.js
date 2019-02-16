@@ -29,7 +29,7 @@ const uf2 = new UnionFind2(size);
 const uf3 = new UnionFind3(size);
 const uf4 = new UnionFind4(size);
 const uf5 = new UnionFind5(size);
-const uf6 = new UnionFind5(size);
+const uf6 = new UnionFind6(size);
 console.log(`UnionFind1, time: ${testUnionFind(uf1, m)} s.`);
 console.log(`UnionFind2, time: ${testUnionFind(uf2, m)} s.`);
 console.log(`UnionFind3, time: ${testUnionFind(uf3, m)} s.`);
