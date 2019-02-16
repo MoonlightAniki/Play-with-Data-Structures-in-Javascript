@@ -6,7 +6,9 @@ class SegmentTree {
 
     this.tree = [];
     this.tree.length = this.data.length * 4;
-    this.__buildSegmentTree(0, 0, this.data.length - 1);
+    if (this.data.length) {
+      this.__buildSegmentTree(0, 0, this.data.length - 1);
+    }
   }
 
   getSize() {
@@ -92,7 +94,7 @@ class SegmentTree {
 
   __set(treeIndex, l, r, index, e) {
     if (l === r) {
-      this.tree[index] = e;
+      this.tree[treeIndex] = e;
       return;
     }
     const mid = l + ((r - l) / 2) | 0;
