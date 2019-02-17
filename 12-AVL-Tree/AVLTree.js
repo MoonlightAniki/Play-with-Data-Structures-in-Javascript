@@ -179,21 +179,11 @@ class AVLTree {
   }
 
   set(key, newValue) {
-    this.root = this.__set(this.root, key, newValue);
-  }
-
-  __set(node, key, newValue) {
+    const node = this.get(this.root, key);
     if (!node) {
-      throw new Error(`${key} does not exist.`);
+      throw new Error(`${key} doesn't exist!`);
     }
-    if (key === node.key) {
-      node.value = newValue;
-    } else if (key < node.key) {
-      node.left = this.__set(node.left, key, newValue);
-    } else {
-      node.right = this.__set(node.right, key, newValue);
-    }
-    return node;
+    node.value = newValue;
   }
 
   maximum() {
