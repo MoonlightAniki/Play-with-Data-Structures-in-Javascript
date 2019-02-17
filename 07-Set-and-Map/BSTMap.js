@@ -121,5 +121,6 @@ class BSTMap {
     }
     return this.__maximum(node.right);
   }
-
 }
+
+module.exports = BSTMap;

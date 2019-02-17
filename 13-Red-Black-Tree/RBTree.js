@@ -144,3 +144,5 @@ class RBTree {
     node.right.color = BLACK;
   }
 }
+
+module.exports = RBTree;
