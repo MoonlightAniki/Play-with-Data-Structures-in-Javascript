@@ -2,6 +2,9 @@ const RBTree = require('./RBTree');
 const AVLMap = require('../12-AVL-Tree/AVLMap');
 const BSTMap = require('../07-Set-and-Map/BSTMap');
 const LinkedListMap = require('../07-Set-and-Map/LinkedListMap');
+const HashTable = require('../14-Hash-Table/HashTable');
+const HashTable2 = require('../14-Hash-Table/HashTable2');
+const HashTable3 = require('../14-Hash-Table/HashTable3');
 
 const INT_MAX = Math.pow(2, 32) - 1;
 const testData = [];
@@ -15,7 +18,7 @@ const map = new Map();
 testData.forEach(num => map.set(num, null));
 testData.forEach(num => map.has(num));
 let endTime = Date.now();
-console.log(`Map, time: ${endTime - startTime} s.`);
+console.log(`Map, time: ${endTime - startTime} ms.`);
 
 startTime = Date.now();
 const rbt = new RBTree();
@@ -51,6 +54,27 @@ console.log(`BSTMap, time: ${endTime - startTime} ms.`);
 // testData.forEach(num => linkedListMap.contains(num));
 // endTime= Date.now();
 // console.log(`LinkedListMap, time: ${endTime - startTime} ms.`);
+
+startTime = Date.now();
+const hashtable = new HashTable();
+testData.forEach(num => hashtable.add(num, null));
+testData.forEach(num => hashtable.contains(num));
+endTime = Date.now();
+console.log(`HashTable, time: ${endTime - startTime} ms.`);
+
+startTime = Date.now();
+const hashtable2 = new HashTable2();
+testData.forEach(num => hashtable2.add(num, null));
+testData.forEach(num => hashtable2.contains(num));
+endTime = Date.now();
+console.log(`HashTable2, time: ${endTime - startTime} ms.`);
+
+startTime = Date.now();
+const hashtable3 = new HashTable3();
+testData.forEach(num => hashtable3.add(num, null));
+testData.forEach(num => hashtable3.contains(num));
+endTime = Date.now();
+console.log(`HashTable3, time: ${endTime - startTime} ms.`);
 
 
 
